@@ -1,0 +1,6 @@
+dependencies:
+- name: helm-chart-library
+  repository: http://charts.krateo.io
+  version: 0.1.3
+digest: sha256:94e53cca944f7ef5327d0a1b45d2c296d7aec0ae4ff59d410fc0336a20034981
+generated: "2022-05-12T17:29:24.246891+02:00"

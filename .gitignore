@@ -1,0 +1,10 @@
+node_modules
+*.lock
+.dccache
+nodemon.json
+test.js
+assets/*
+*.txt
+local.js
+spec.json
+sample.yaml
