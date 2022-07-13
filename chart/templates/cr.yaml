@@ -1,7 +1,6 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
-  namespace: {{ .Release.Namespace }}
   name: {{ include "helm.serviceAccountName" . }}
   labels:
     {{- include "helm.labels" . | nindent 8 }}
