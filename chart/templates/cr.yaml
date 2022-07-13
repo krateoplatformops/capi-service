@@ -3,8 +3,9 @@ kind: Role
 metadata:
   namespace: {{ .Release.Namespace }}
   name: {{ include "helm.serviceAccountName" . }}
-  labels: {{ - include "helm.labels" . | nindent 8 }}
+  labels:
+    {{- include "helm.labels" . | nindent 8 }}
 rules:
-  - apiGroups: ['']
-    resources: ['secrets']
-    verbs: ['get', 'list', 'create', 'delete']
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["get", "list", "create", "delete"]

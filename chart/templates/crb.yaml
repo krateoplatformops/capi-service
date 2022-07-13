@@ -8,6 +8,6 @@ roleRef:
   kind: Role
   name: {{ include "helm.serviceAccountName" . }}
 subjects:
-  - kind: ServiceAccount
-    name: {{ include "helm.serviceAccountName" . }}
-    namespace: {{ .Release.Namespace }}
+- kind: ServiceAccount
+  name: {{ include "helm.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
