@@ -4,7 +4,6 @@ const { logger } = require('../helpers/logger.helpers')
 const k8s = require('@kubernetes/client-node')
 const request = require('request')
 const yaml = require('js-yaml')
-const stringHelpers = require('../helpers/string.helpers')
 
 router.get('/:deploymentId', async (req, res, next) => {
   try {
@@ -15,6 +14,7 @@ router.get('/:deploymentId', async (req, res, next) => {
     kc.applyToRequest(opts)
 
     const selector = `deploymentId=${req.params.deploymentId}`
+    logger.debug(selector)
 
     const yamlData = await new Promise((resolve, reject) => {
       request(
@@ -36,6 +36,8 @@ router.get('/:deploymentId', async (req, res, next) => {
     let response = null
 
     const payload = yaml.load(yamlData)
+    logger.debug(JSON.stringify(payload))
+
     if (payload.items && payload.items.length > 0) {
       response = payload.items[0].data.kubeconfig
     }
