@@ -72,7 +72,7 @@ podEnv:
         key: MONGODB_URI
 
 ingress:
-  enabled: true
+  enabled: false
   annotations:
     kubernetes.io/ingress.class: kong
   host: provider.krateo.site
