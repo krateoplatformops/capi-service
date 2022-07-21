@@ -70,11 +70,16 @@ router.get('/:deploymentId/cluster', async (req, res, next) => {
     )
     const payloadStatus = yaml.load(clusterStatus)
     if (payloadStatus && payloadStatus.items) {
-      response.ready = payloadStatus.items[0].status.ready
+      response.ready = payloadStatus.items[0].status?.ready || false
       response.creationDate = payloadStatus.items[0].metadata.creationTimestamp
     }
 
-    res.status(200).json(response)
+    res.status(200).json({
+      values: Object.keys(response).map((x) => ({
+        name: x,
+        value: response[x]
+      }))
+    })
   } catch (error) {
     next(error)
   }
