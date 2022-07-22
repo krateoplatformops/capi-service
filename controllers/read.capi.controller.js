@@ -61,7 +61,7 @@ router.get('/:deploymentId/cluster', async (req, res, next) => {
       response.autoscaling = payload.items[0].spec.autoscaling
       response.nodes = payload.items[0].spec.worker.machine.count
       response.ha = payload.items[0].spec.controlplane.ha
-      response.tags = payload.items[0].spec.tags
+      // response.tags = payload.items[0].spec.tags
     }
 
     // Status
